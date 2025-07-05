@@ -17,7 +17,14 @@ connectDB();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+const allowedOrigins = ["https://baba-boutique-chg5.onrender.com"];
+app.use(cors(
+  {
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }
+));
 
 // API Routes
 app.use("/api/products", productRoutes);
