@@ -24,15 +24,6 @@ app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/admin", adminRoutes);
 
-// Serve frontend for production
-const __dirname = path.resolve();
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/dist")));
-
-  app.get("*", (req, res) =>
-    res.sendFile(path.join(__dirname, "client", "dist", "index.html"))
-  );
-}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () =>
