@@ -9,8 +9,10 @@ import productRoutes from "./routes/productRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 
 // Load env variables
-dotenv.config();
 
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 // Connect to MongoDB
 connectDB();
 
