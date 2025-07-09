@@ -19,7 +19,7 @@ connectDB();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const allowedOrigins = ["https://baba-boutique-chg5.onrender.com"];
+const allowedOrigins = "https://baba-boutique-chg5.onrender.com";
 app.use(cors({
   origin: allowedOrigins
 }));
